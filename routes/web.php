@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +25,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	
 	Route::get('categories', 'CategoryController@index')->name('categories.index');
 		
+	
+});
+
+
+Route::get('/teste', function(){
+
+    $teste = new App\BO\ArticleBO;
+	
+	return $teste->getListagem();
 	
 });
 
