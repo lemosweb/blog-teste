@@ -34,13 +34,16 @@ class Article extends Model
     
     public function getListagemDeArtigos()
     {
-    	return DB::table('articles')
-                  ->leftjoin('sub_categories', 'articles.sub_category_id', '=', 'sub_categories.id')
-                  ->leftjoin('categories', 'categories.id', '=', 'sub_categories.category_id')
-                  ->leftjoin('users', 'users.id', '=', 'articles.user_id')
-                  ->select('articles.titulo', 'users.name')
+    	
+    	return $this
+                  ->leftjoin('sub_categories AS sc', 'sub_category_id', '=', 'sc.id')
+                  ->leftjoin('categories AS c', 'c.id', '=', 'sc.category_id')
+                  ->leftjoin('users AS u', 'u.id', '=', 'user_id')
+                  ->select('titulo',
+                  		   'u.name AS usuario',
+                  		   'c.name AS categoria',
+                  		   'sc.name AS subcategoria')
                   ->get();
-
 
     }
     
