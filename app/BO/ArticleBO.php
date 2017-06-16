@@ -2,7 +2,6 @@
 
 namespace App\BO;
 
-
 use App\Article;
 
 /**
@@ -13,11 +12,8 @@ use App\Article;
  */
 class ArticleBO
 {  
-
     public function getListagem()
-    {    	
-    	$article = new Article();
-    	
-        return $article->all();
+    {       	
+        return Article::all();
     }
 }

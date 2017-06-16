@@ -31,9 +31,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 Route::get('/teste', function(){
 
-    $teste = new App\BO\ArticleBO;
-	
-	return $teste->getListagem();
+    $listaDeArtigos = new App\Article();
+
+	return $listaDeArtigos->getListagemDeArtigos();
 	
 });
 
