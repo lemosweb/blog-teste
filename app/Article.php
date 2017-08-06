@@ -20,7 +20,7 @@ class Article extends Model
     		'sub_category_id',    		
     		'created_at'
     
-    ];
+    ]; 
     
     public function user()
     {
@@ -32,7 +32,7 @@ class Article extends Model
     	return $this->belongsTo(SubCategory::class);
     }
     
-    public function getListagemDeArtigos()
+    public function getListagem()
     {
     	
     	return $this
@@ -40,12 +40,17 @@ class Article extends Model
                   ->leftjoin('categories AS c', 'c.id', '=', 'sc.category_id')
                   ->leftjoin('users AS u', 'u.id', '=', 'user_id')
                   ->select('titulo',
-                  		   'u.name AS usuario',
+                  		   'u.name AS autor',
                   		   'c.name AS categoria',
-                  		   'sc.name AS subcategoria')
+                  		   'sc.name AS subcategoria'
+                         )
                   ->get();
 
     }
+    
+    
+    
+    
     
     
 }

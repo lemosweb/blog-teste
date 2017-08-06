@@ -25,6 +25,19 @@ class SubCategory extends Model
     {
     	return $this->hasMany(Article::class);
     }
+
+    public function getListagem()
+    {
+        
+        return $this                                   
+                  ->leftjoin('categories AS c', 'c.id', '=', 'category_id')
+                  ->select('sub_categories.id',
+                           'sub_categories.name',             
+                           'c.name AS category'                        
+                         )
+                  ->get();
+
+    }
     
     
 }    

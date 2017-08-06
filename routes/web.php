@@ -23,8 +23,31 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	
-	Route::get('categories', 'CategoryController@index')->name('categories.index');
-		
+	Route::group(['prefix' => 'categories'], function (){
+
+		Route::get('/', 'CategoryController@index')->name('categories.index');
+		Route::get('create', 'CategoryController@create')->name('categories.create');
+		Route::post('store', 'CategoryController@store')->name('categories.store');
+		Route::get('edit/{id}', 'CategoryController@edit')->name('categories.edit');
+		Route::post('update/{id}', 'CategoryController@update')->name('categories.update');
+		Route::get('destroy/{id}', 'CategoryController@destroy')->name('categories.destroy');
+
+	});
+
+	Route::group(['prefix' => 'subcategories'], function (){
+
+		Route::get('/', 'SubCategoryController@index')->name('subcategories.index');
+		Route::get('create', 'SubCategoryController@create')->name('subcategories.create');
+		Route::post('store', 'SubCategoryController@store')->name('subcategories.store');
+		Route::get('edit/{id}', 'SubCategoryController@edit')->name('subcategories.edit');
+		Route::post('update/{id}', 'SubCategoryController@update')->name('subcategories.update');
+		Route::get('destroy/{id}', 'SubCategoryController@destroy')->name('subcategories.destroy');
+
+	});
+
+	
+	
+	Route::get('articles', 'ArticleController@index')->name('article.index');
 	
 });
 
@@ -33,7 +56,7 @@ Route::get('/teste', function(){
 
     $listaDeArtigos = new App\Article();
 
-	return $listaDeArtigos->getListagemDeArtigos();
+	return $listaDeArtigos->getListagem();
 	
 });
 
