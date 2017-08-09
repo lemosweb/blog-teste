@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => '127.0.0.1',
+            'host' => 'mysql',
             'port' => '3306',
             'database' => 'gespriority',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'autodoc',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

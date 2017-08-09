@@ -3,39 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SubCategory;
-use App\Category;
+use Domain\SubCategory\SubCategory;
+use Domain\Category\Category;
 
 class SubCategoryController extends Controller
 {
     private $subcategory;
     private $categories;
-    
+
     public function __construct(SubCategory $subcategory, Category $categories)
     {
         $this->subcategory = $subcategory;
         $this->categories = $categories;
     }
-    
+
     public function index()
     {
-        
+
         $subcategories = $this->subcategory->getListagem();
-        
+
         return view('admin.subcategories.index', compact('subcategories'));
     }
 
       public function create()
     {
 
-        $categories = $this->categories->pluck( 'name', 'id');    
+        $categories = $this->categories->pluck( 'name', 'id');
 
         return view('admin.subcategories.create', compact('categories'));
     }
 
     public function store(Request $request)
-    {   
-        
+    {
+
         $this->subcategory->create($request->all());
 
 
@@ -43,7 +43,7 @@ class SubCategoryController extends Controller
     }
 
     public function edit($id)
-    {       
+    {
 
         $categories = $this->categories->pluck('name', 'id');
 
@@ -70,9 +70,9 @@ class SubCategoryController extends Controller
     {
 
         $category = $this->subcategory->find($id);
-        
+
         $category->delete($id);
-        
+
         return redirect()->route('subcategories.index');
 
     }

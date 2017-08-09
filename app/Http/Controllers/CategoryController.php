@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use Domain\Category\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-	
+
 	private $categories;
-	
+
 	public function __construct(Category $categories)
 	{
 		$this->categories = $categories;
 	}
-	
+
     public function index()
     {
-    	   	
+
     	$categories = $this->categories->all();
-    	
+
     	return view('admin.categories.index', compact('categories'));
     }
 
@@ -29,7 +29,7 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request)
-    {   	
+    {
 
     	$categorysaved = $this->categories->create($request->all());
 
@@ -37,9 +37,9 @@ class CategoryController extends Controller
     }
 
     public function edit($id)
-    {    	
+    {
 
-    	$category = $this->categories->find($id);    	
+    	$category = $this->categories->find($id);
 
     	return view('admin.categories.edit', compact('category'));
 
@@ -62,9 +62,9 @@ class CategoryController extends Controller
     {
 
     	$category = $this->categories->find($id);
-    	
+
     	$category->delete($id);
-    	
+
     	return redirect()->route('categories.index');
 
     }
