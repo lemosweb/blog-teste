@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
-	
+
 	Route::group(['prefix' => 'categories'], function (){
 
 		Route::get('/', 'CategoryController@index')->name('categories.index');
@@ -45,18 +45,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	});
 
-	
-	
-	Route::get('articles', 'ArticleController@index')->name('article.index');
-	
+	Route::group(['prefix' => 'articles'], function (){
+    
+    	Route::get('/', 'ArticleController@index')->name('article.index');
+    	Route::get('create', 'ArticleController@create')->name('article.create');
+    	Route::get('store', 'ArticleController@store')->name('article.store');
+
+  });
+
+
 });
-
-
-Route::get('/teste', function(){
-
-    $listaDeArtigos = new App\Article();
-
-	return $listaDeArtigos->getListagem();
-	
-});
-
