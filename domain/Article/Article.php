@@ -15,10 +15,10 @@ class Article extends Model
 
     protected $fillable = [
 
-    		'titulo',
+    		'title',
 				'id',
-    		'conteudo',
-    		'relevancia',
+    		'content',
+    		'relevance',
 				'created_at',
 				'user_id',
     		'sub_category_id'
@@ -43,7 +43,8 @@ class Article extends Model
                   ->leftjoin('sub_categories AS sc', 'sub_category_id', '=', 'sc.id')
                   ->leftjoin('categories AS c', 'c.id', '=', 'sc.category_id')
                   ->leftjoin('users AS u', 'u.id', '=', 'user_id')
-                  ->select('titulo',
+                  ->select('title',
+													 'articles.id',	
                   		   'u.name AS autor',
                   		   'c.name AS categoria',
                   		   'sc.name AS subcategoria'

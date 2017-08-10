@@ -14,26 +14,24 @@
 
 				  <div class="form-group">
 
-				    <label for="formGroupExampleInput">Title</label>
-				    <input type="text" class="form-control" name="title" value="" placeholder="Title of Article">
+				    <label for="Title">Title</label>
+				    <input  type="text" name="title" class="form-control"  placeholder="Title of Article">
 
 				  </div>
-
-
 
 					<div class="form-group">
 
 						<div class="col col-sm-6">
 
-							<label for="formGroupExampleInput">Subcategory</label>
+							<label for="Classify">Classify in</label>
 							{!! Form::select('sub_category_id', $subcategories, null, ['class'=>'form-control']) !!}
 
 						</div>
 
 						<div class="col col-sm-6">
 
-							<label for="formGroupExampleInput">Relevance</label>
-							{!! Form::select('relevancia', $relevance, null, ['class'=>'form-control']) !!}
+							<label for="Relevance">Relevance</label>
+							{!! Form::select('relevance', $relevance, null, ['class'=>'form-control']) !!}
 
 						</div>
 
@@ -41,15 +39,10 @@
 
 
 
-
-
-
-
-
 					<div class="form-group">
 
 				    <label for="content">Content</label>
-				    <textarea name="conteudo" class="form-control" id="exampleTextarea" rows="15"></textarea>
+				    <textarea name="content" class="form-control" id="exampleTextarea" rows="15"></textarea>
 
   				</div>
 

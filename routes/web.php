@@ -49,7 +49,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
     	Route::get('/', 'ArticleController@index')->name('article.index');
     	Route::get('create', 'ArticleController@create')->name('article.create');
-    	Route::get('store', 'ArticleController@store')->name('article.store');
+    	Route::post('store', 'ArticleController@store')->name('article.store');
+      Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
+  		Route::post('update/{id}', 'ArticleController@update')->name('article.update');
+  		Route::get('destroy/{id}', 'ArticleController@destroy')->name('article.destroy');
 
   });
 

@@ -3,29 +3,25 @@
 @section('content')
 <div class="row">
 	<div class="container">
-	
-		<h1>Create Category</h1>
+
+		<h1>Edit Article</h1>
 
 		<div class="row">
 			<div class="container">
-				
-				<form action="{{ route('categories.update', $category->id) }}" method="post">
-				  {!! csrf_field() !!}	
 
-				  <div class="form-group">
-				    <label for="formGroupExampleInput">Name</label>
-				    <input type="text" class="form-control" name="name" value="{{ $category->name }}" placeholder="Nome da Categoria">
-				  </div>
+				{!! Form::model($article, ['route' => ['article.update', $article->id]])	!!}
 
-				  <button type="submit" class="btn btn-primary">Criar Categoria</button>
-				 
-				</form>
+				  @include('admin.article.articleform')
+
+				  <button type="submit" class="btn btn-primary">Update</button>
+
+				{{ Form::close() }}
 
 			</div>
 		</div>
 
-			
-	
+
+
 	</div>
 </div>
 @endsection

@@ -59,7 +59,7 @@ class SubCategoryController extends Controller
         $subcategory = $this->subcategory->find($id);
 
 
-        $updated = $subcategory->update(['name' => $request->name, 'categoty_id' => $request->name]);
+        $updated = $subcategory->update(['name' => $request->name, 'category_id' => $request->name]);
 
 
         return redirect()->route('subcategories.index');
