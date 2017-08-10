@@ -14,7 +14,7 @@ class ArticleController extends Controller
     public function __construct(Article $article, SubCategory $subCategories)
     {
         $this->article = $article;
-        
+
         $this->subCategories = $subCategories;
     }
 
@@ -27,9 +27,19 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $subcategories = $this->subcategories->pluck('name','id');
+        $subcategories = $this->subCategories->pluck('name','id');
 
-        return view('admin.article.create', compact('subcategoires'));
+        $relevance = ['1','2','3','4','5'];
+
+      return view('admin.article.create',compact('subcategories','relevance'));
+    }
+
+    public function store(Request $request)
+    {
+
+      $this->article->create($request->all());
+
+      return redirect()->route('article.index');
     }
 
 
