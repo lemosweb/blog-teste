@@ -46,7 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	});
 
 	Route::group(['prefix' => 'articles'], function (){
-    
+
     	Route::get('/', 'ArticleController@index')->name('article.index');
     	Route::get('create', 'ArticleController@create')->name('article.create');
     	Route::get('store', 'ArticleController@store')->name('article.store');
