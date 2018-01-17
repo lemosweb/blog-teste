@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
       $this->article->create($request->all());
 
-      return redirect()->route('article.index');
+      return redirect()->route('articles.index');
 
     }
 
@@ -62,7 +62,7 @@ class ArticleController extends Controller
 
         $article->update($request->all());
 
-        return redirect()->route('article.index');
+        return redirect()->route('articles.index');
 
     }
 
@@ -73,7 +73,7 @@ class ArticleController extends Controller
 
     	$article->delete($id);
 
-    	return redirect()->route('article.index');
+    	return redirect()->route('articles.index');
 
     }
 

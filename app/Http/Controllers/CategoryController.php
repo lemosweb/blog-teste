@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Domain\Category\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\FormCategoryRequest;
+
 
 class CategoryController extends Controller
 {
@@ -28,8 +29,8 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
-    {
+    public function store(FormCategoryRequest $request)
+    {        
 
     	$categorysaved = $this->categories->create($request->all());
 
@@ -45,7 +46,7 @@ class CategoryController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update($id, FormCategoryRequest $request)
     {
 
 		$category = $this->categories->find($id);

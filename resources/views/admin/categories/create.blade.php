@@ -19,7 +19,7 @@
 
 				  </div>
 
-				  <button type="submit" class="btn btn-primary">Criar Categoria</button>
+				  <button type="submit" class="btn btn-primary">Create Category</button>
 				 
 				</form>
 

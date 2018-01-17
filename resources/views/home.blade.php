@@ -8,7 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ul>Go to:
+                    	<li><a href="{{ route('categories.index') }}">Categories</a></li>
+                    	<li><a href="{{ route('subcategories.index') }}">Sub Categories</a></li>	
+                    	<li><a href="{{ route('articles.index')}}">Articles</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

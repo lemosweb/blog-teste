@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="container">
 
-				<form action="{{ route('article.store') }}" method="post">
+				<form action="{{ route('articles.store') }}" method="post">
 				  {!! csrf_field() !!}
 
 				  <div class="form-group">

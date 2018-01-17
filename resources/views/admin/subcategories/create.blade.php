@@ -28,7 +28,7 @@
 
 
 				
-				  <button type="submit" class="btn btn-primary">Criar SubCategoria</button>
+				  <button type="submit" class="btn btn-primary">Create Subcategory</button>
 				 
 				</form>
 

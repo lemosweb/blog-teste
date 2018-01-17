@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/Auth::routes();
 
 
 
@@ -19,9 +19,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+
+  Route::group(['prefix' => 'home'], function (){
+
+    Route::get('/', 'HomeController@index')->name('home');
+
+  });
 
 	Route::group(['prefix' => 'categories'], function (){
 
@@ -47,14 +53,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::group(['prefix' => 'articles'], function (){
 
-    	Route::get('/', 'ArticleController@index')->name('article.index');
-    	Route::get('create', 'ArticleController@create')->name('article.create');
-    	Route::post('store', 'ArticleController@store')->name('article.store');
-      Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
-  		Route::post('update/{id}', 'ArticleController@update')->name('article.update');
-  		Route::get('destroy/{id}', 'ArticleController@destroy')->name('article.destroy');
+    	Route::get('/', 'ArticleController@index')->name('articles.index');
+    	Route::get('create', 'ArticleController@create')->name('articles.create');
+    	Route::post('store', 'ArticleController@store')->name('articles.store');
+      	Route::get('edit/{id}', 'ArticleController@edit')->name('articles.edit');
+  		Route::post('update/{id}', 'ArticleController@update')->name('articles.update');
+  		Route::get('destroy/{id}', 'ArticleController@destroy')->name('articles.destroy');
 
-  });
+  	});
+
+  	Route::group(['prefix' => 'user'], function (){
+
+    	Route::get('/', 'UserController@index')->name('user.index');
+    	Route::get('create', 'UserController@create')->name('user.create');
+    	Route::post('store', 'UserController@store')->name('user.store');
+     	Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
+  		Route::post('update/{id}', 'UserController@update')->name('user.update');
+  		Route::get('destroy/{id}', 'UserController@destroy')->name('user.destroy');
+
+  	});
 
 
 });

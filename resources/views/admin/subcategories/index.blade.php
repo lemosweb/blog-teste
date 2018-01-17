@@ -4,14 +4,14 @@
 <div class="row">
 	<div class="container">
 	
-		<h1>Subcategorias</h1>
+		<h1>Subcategories</h1>
 
 			<table class="table table-striped">
                         <thead>
                           <tr>
-                            <th>Nome</th>
-                            <th>Categoria</th>
-                            <th>Ações</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -24,8 +24,8 @@
                             
                                 <td>
                                     
-                                    <a href="{{ route('subcategories.edit', $subcategory->id ) }}" class="btn btn-default">Editar</a>
-                                    <a href="{{ route('subcategories.destroy', $subcategory->id ) }}" class="btn btn-danger">Excluir</a>
+                                    <a href="{{ route('subcategories.edit', $subcategory->id ) }}" class="btn btn-default">Edit</a>
+                                    <a href="{{ route('subcategories.destroy', $subcategory->id ) }}" class="btn btn-danger">Delete</a>
 
                                 </td>
                                 

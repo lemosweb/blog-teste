@@ -2,15 +2,21 @@
 
 @section('content')
 <div class="row">
+  <div class="container">
+      <a href="{{ route('categories.create') }}" class="button">Create Category</a>
+  </div>
+</div>
+
+<div class="row">
 	<div class="container">
 	
-		<h1>Categorias</h1>
+		<h1>Categories</h1>
 
 			<table class="table table-striped">
                         <thead>
                           <tr>
-                            <th>Nome</th>
-                            <th>Ações</th>
+                            <th>Name</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -21,8 +27,8 @@
                             
                                 <td>
                                     
-                                    <a href="{{ route('categories.edit', $category->id ) }}" class="btn btn-default">Editar</a>
-                                    <a href="{{ route('categories.destroy', $category->id ) }}" class="btn btn-danger">Excluir</a>
+                                    <a href="{{ route('categories.edit', $category->id ) }}" class="btn btn-default">Edit</a>
+                                    <a href="{{ route('categories.destroy', $category->id ) }}" class="btn btn-danger">Delete</a>
 
                                 </td>
                                 
