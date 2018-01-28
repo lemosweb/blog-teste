@@ -1,22 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row">
-  <div class="container">
-      <a href="{{ route('categories.create') }}" class="button">Create Category</a>
+  <div class="container col s11 right-align">       
+      <a  href="{{ route('categories.create') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>      
   </div>
-</div>
+</div>  
+
 
 <div class="row">
 	<div class="container">
 	
 		<h1>Categories</h1>
 
-			<table class="table table-striped">
+			<table class="striped">
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Action</th>
+                            <th class="center-align">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -25,7 +27,7 @@
 
                                 <td>{{ $category->name }}</td>
                             
-                                <td>
+                                <td class="right-align">
                                     
                                     <a href="{{ route('categories.edit', $category->id ) }}" class="btn btn-default">Edit</a>
                                     <a href="{{ route('categories.destroy', $category->id ) }}" class="btn btn-danger">Delete</a>

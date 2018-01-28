@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Domain\SubCategory\SubCategory;
 use Domain\Category\Category;
+use App\Http\Requests\FormSubCategoryRequest;
+use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
@@ -33,7 +34,7 @@ class SubCategoryController extends Controller
         return view('admin.subcategories.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(FormSubCategoryRequest $request)
     {
 
         $this->subcategory->create($request->all());
@@ -53,7 +54,7 @@ class SubCategoryController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update($id, FormSubCategoryRequest $request)
     {        
 
         $subcategory = $this->subcategory->find($id);

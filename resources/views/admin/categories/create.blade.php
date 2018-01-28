@@ -4,7 +4,9 @@
 <div class="row">
 	<div class="container">
 	
-		<h1>Create Category</h1>
+		<div class="container">
+			<h4>Create Category</h4>
+		</div>
 
 		<div class="row">
 			<div class="container">
@@ -19,7 +21,11 @@
 
 				  </div>
 
-				  <button type="submit" class="btn btn-primary">Create Category</button>
+					<div class="right-align">
+						<button type="submit" class="btn btn-primary">Create Category</button>
+					</div>
+
+				  
 				 
 				</form>
 
